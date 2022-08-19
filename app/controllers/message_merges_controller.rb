@@ -1,0 +1,3 @@
+class MessageMergesController < ApplicationController
+   
+end

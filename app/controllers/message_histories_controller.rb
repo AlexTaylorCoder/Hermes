@@ -1,0 +1,3 @@
+class MessageHistoriesController < ApplicationController
+
+end
