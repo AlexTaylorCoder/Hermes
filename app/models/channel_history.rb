@@ -1,7 +1,7 @@
 class ChannelHistory < ApplicationRecord
-    has_many :messages
-    has_many :members
+    has_many :message_histories
+    has_many :member_histories
     
-    has_many :users, through: :members
-    has_many :users, through: :messages
+    has_many :user_histories, through: :member_histories
+    has_many :user_histories, through: :message_histories
 end

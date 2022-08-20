@@ -1,4 +1,4 @@
 class MemberHistory < ApplicationRecord
-    belongs_to :user
-    belongs_to :channel
+    belongs_to :user_history
+    belongs_to :channel_history
 end

@@ -10,6 +10,6 @@ class ApplicationController < ActionController::API
     end
   
     def record_not_found invalid
-      render json: {errors: invalid}
+      render json: {errors: invalid.message}
     end
 end

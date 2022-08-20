@@ -1,4 +1,4 @@
 class SubChannelHistory < ApplicationRecord
-    has_many :messages
-    has_many :users, through: :messages
+    has_many :message_histories
+    has_many :user_histories, through: :message_histories
 end

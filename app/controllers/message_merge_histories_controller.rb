@@ -1,0 +1,2 @@
+class MessageMergeHistoriesController < ApplicationController
+end
