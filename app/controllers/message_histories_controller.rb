@@ -1,3 +1,3 @@
-class MessageHistoriesController < ApplicationController
+class MessageHistoriesController < HistoryController
 
 end

@@ -1,2 +1,2 @@
-class UserHistoriesController < ApplicationController
+class UserHistoriesController < HistoryController
 end

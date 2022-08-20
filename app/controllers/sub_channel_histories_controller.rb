@@ -1,2 +1,2 @@
-class SubChannelHistoriesController < ApplicationController
+class SubChannelHistoriesController < HistoryController
 end

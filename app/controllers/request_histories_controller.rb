@@ -1,2 +1,2 @@
-class RequestHistoriesController < ApplicationController
+class RequestHistoriesController < HistoryController
 end

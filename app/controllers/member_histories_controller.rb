@@ -1,2 +1,2 @@
-class MemberHistoriesController < ApplicationController
+class MemberHistoriesController < HistoryController
 end
