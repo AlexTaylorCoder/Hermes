@@ -1,11 +1,11 @@
 class HistoryController < ApplicationController
     rescue_from ActiveRecord::RecordNotFound, with: :not_found
-    
-    prepend_before_action :model_context
+
+    before_action :model_context
     before_action :permitted
 
     def index
-        if params.keys.length > 3
+        if params.keys.length > 3 
             hash = {}
   
             permitted.each do |k,v| 

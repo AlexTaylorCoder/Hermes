@@ -15,6 +15,19 @@ class MessagesController < ApplicationController
         render json: @message
     end
 
+    def update
+
+        if params[:post]
+            @message.update(params[:post])
+        elsif params[:likes]
+            @message.update(params[:likes])
+        elsif params[:isPinned]
+            @message.update(params[:isPinned])
+        end
+
+        render json: @message
+    end 
+
     def destroy
         @message.destroy
         head :no_content
