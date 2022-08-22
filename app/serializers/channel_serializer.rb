@@ -4,6 +4,6 @@ class ChannelSerializer < ActiveModel::Serializer
   has_many :members
 
   def member_count
-    members.member_count
+    object.members.count
   end
 end

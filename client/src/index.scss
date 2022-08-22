@@ -12,7 +12,8 @@ $formsecondary: rgba(23,117,169,255);
     padding: 0;
     margin:0
 }
-input {
+input, textarea {
+    border: none;
     border: none;
 }
 input:focus {
@@ -20,37 +21,121 @@ input:focus {
     background-color: $formcolorfocus;
     border-bottom: 2px solid $formsecondary;
 }
-.center-form {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+textarea:focus {
+    outline: 2px solid $formsecondary;
 }
 #create-account {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    border-radius: 10px;
+    width: 50%;    
     gap: 10px;
-    padding: 10px;
+    padding: 40px;
     color: white;
     font-size: 22px;
     background-color:$formcolor;
     h1 {
         border-bottom: 2px solid white;
     }
-    input {
+    input,textarea {
         margin-left: 5px;
         padding: 10px;
         color: white;
         background-color: $formcolor;
         font-size: 18px;
         border-left: 1px solid white;
+        transition: 300ms;
+
     }
 
     input[type="submit"] {
         margin-top: 10px;
-        background-color: white;
+        background-color: $formsecondary;
         width: 25%;
+        &:hover {
+            background-color: darkcyan;
+        }
     }
+}
+
+
+.center-form {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    background-color: wheat;
+    min-height: 100vh;
+    background-color: $formcolor;
+    animation: background-form infinite ease-in-out 20s;
+}
+
+@keyframes background-form {
+    0%,100%{background-color: $formcolor;}
+    50%{background-color: $formsecondary;}
+}
+
+#topbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#login {
+    .container {
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background:url("https://i.pinimg.com/originals/a8/0c/07/a80c07903c2065a4ef1a59c963daec70.jpg");
+    }
+    form {
+        opacity: .9;
+        display: flex;
+        background-color: white;
+        flex-direction: column;
+        gap: 10px;
+        padding: 50px 90px;
+        border-radius: 5px;
+        width: 90%;
+        max-width: 600px;
+        box-shadow: 5px 5px 5px darkgray, -5px -5px 5px darkgray;
+        box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    }
+    form h2 {
+        color: darkgrey;
+        font-size: 40px;
+        margin-bottom: 20px;
+    }
+    form input {
+        border: 0;
+        margin: 10px 0;
+        padding: 20px;
+        outline: none;
+        background-color: lightgray;
+        box-shadow: 0 2px 2px black;
+        border-radius: 10px;
+    }
+    form #but {
+        opacity: 1;
+        margin: 10px 20px;
+        height: 30px;
+        width: 50%;
+        margin-left: 30%;
+        box-shadow: 5px 5px 5px darkgray, -5px -5px 5px darkgray;
+        padding: 5px;
+        font-weight: 900;
+        cursor: pointer;
+        background-color: lightsteelblue;
+        transition: .5;
+        letter-spacing: .20em;
+    }
+    form #but:hover {
+        box-shadow: inset 5px 5px 5px darkgray, inset -5px -5px 5px darkgray;
+        background-color: rgb(47, 123, 222);
+        transform: scaleY(1.2);
+        }
 }

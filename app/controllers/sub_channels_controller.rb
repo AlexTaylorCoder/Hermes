@@ -26,7 +26,7 @@ class SubChannelsController < ApplicationController
     end
 
     def save_history
-        SubChannel.create(@subchannel.attributes)
+        SubChannelHistory.create(@subchannel.attributes)
     end
 
     def search

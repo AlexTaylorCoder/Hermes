@@ -11,7 +11,7 @@ function CreateAccount() {
                     <label>First Name<input type='text'/></label>
                     <label>Last Name<input type='text'/></label>
                     <label>Email<input type='text'/></label>
-                    <label>Bio<input type='text'/></label>
+                    <label>Bio<textarea /></label>
                     <input value=""type="submit"/>
                 </div>
             </form>

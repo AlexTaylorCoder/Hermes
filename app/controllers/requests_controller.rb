@@ -26,7 +26,7 @@ class RequestsController < ApplicationController
     end
 
     def save_history
-        Request.create(@request.attributes)
+        RequestHistory.create(@request.attributes)
     end
 
     def search

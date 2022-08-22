@@ -26,7 +26,7 @@ class MessagesController < ApplicationController
     end
 
     def save_history
-        Message.create(@message.attributes)
+        MessageHistory.create(@message.attributes)
     end
 
     def search
