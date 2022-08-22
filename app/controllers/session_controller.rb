@@ -18,6 +18,7 @@ class SessionController < ApplicationController
 
     def logout
         session.destroy
+        head :no_content
     end
 
     private
