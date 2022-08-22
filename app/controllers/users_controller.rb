@@ -15,6 +15,11 @@ class UsersController < ApplicationController
         render json: @user
     end
 
+    def destroy
+        @user.destroy
+        head :no_content
+    end
+
     private
     def validate_user
         if !session[:user_id]

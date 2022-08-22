@@ -1,11 +1,55 @@
-body {
-  margin: 0;
+* {
   padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-h1 {
-  font-size: 14px;
+**::after, **::before {
+  padding: 0;
+  margin: 0;
 }
-h1 p {
-  font-size: 12px;
+
+input {
+  border: none;
+}
+
+input:focus {
+  outline: none;
+  background-color: rgb(40, 149, 193);
+  border-bottom: 2px solid rgb(23, 117, 169);
+}
+
+.center-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#create-account {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  gap: 10px;
+  padding: 10px;
+  color: white;
+  font-size: 22px;
+  background-color: rgb(40, 149, 193);
+}
+#create-account h1 {
+  border-bottom: 2px solid white;
+}
+#create-account input {
+  margin-left: 5px;
+  padding: 10px;
+  color: white;
+  background-color: rgb(40, 149, 193);
+  font-size: 18px;
+  border-left: 1px solid white;
+}
+#create-account input[type=submit] {
+  margin-top: 10px;
+  background-color: white;
+  width: 25%;
 }/*# sourceMappingURL=index.css.map */

@@ -1,16 +1,11 @@
 import { useEffect, useState } from "react";
-
+import CreateAccount from "./user/createaccount";
 
 function App() {
-  const [data,setData] = useState("")
-  useEffect(() => {
-    fetch("/users")
-      .then((r) => r.json())
-      .then(setData);
-  }, []);
-  console.log(data)
+
   return (
     <div className="App">
+    <CreateAccount/>
     </div>
   );
 }
