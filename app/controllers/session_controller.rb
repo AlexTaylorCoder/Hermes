@@ -1,4 +1,5 @@
 class SessionController < ApplicationController
+    skip_before_action :validate_user, except: [:logout]
     rescue_from ActiveRecord::RecordNotFound, with: :not_found
     def login
 
@@ -11,10 +12,6 @@ class SessionController < ApplicationController
             render json: {error: "Invalid username or password"}, status: 401
         end
     end
-
-    # def show
-    #     render json: @current_user ||= User.find(session[:user_id])
-    # end
 
     def logout
         session.destroy

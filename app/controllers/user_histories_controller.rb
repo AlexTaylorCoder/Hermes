@@ -1,2 +1,3 @@
 class UserHistoriesController < HistoryController
+
 end

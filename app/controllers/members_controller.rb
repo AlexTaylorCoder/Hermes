@@ -3,8 +3,9 @@ class MembersController < ApplicationController
     before_action :save_history, only: [:destroy,:update]
 
     # When joining a channel check if user and channel have relatioship through 
-    # member. If true send back member, else create new member.
+    # member. If true send back member, else check requests. 
 
+    
     # "/user:id/channelid" has members return member info
     # Create new member
     # To access user history see if admin true

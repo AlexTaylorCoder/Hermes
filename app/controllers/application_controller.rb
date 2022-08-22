@@ -2,6 +2,8 @@ class ApplicationController < ActionController::API
     include ActionController::Cookies
     rescue_from ActiveRecord::RecordInvalid, with: :record_invalid
     rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
+
+    before_action :validate_user, except: [:create]
   
     private
   
@@ -12,4 +14,10 @@ class ApplicationController < ActionController::API
     def record_not_found invalid
       render json: {errors: invalid.message}
     end
-end
+    
+    def validate_user
+        if !session[:user_id]
+            render json: {errors:"Unauthorized User"}
+        end
+    end
+  end
