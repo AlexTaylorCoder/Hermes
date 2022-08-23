@@ -1,12 +1,11 @@
 class User < ApplicationRecord
-
+    # has_one_attached :avatar
     #validations 
-
     #validates the user object to ensure that first and last name exist, aswell as email and username
-    validates :first_name, :last_name, :user_name, :password_digest, :email, :username, presence: true
+    validates :first_name, :last_name, :username, :password_digest, :email, :username, presence: true
 
     #validates the user name password has atleast 5 to 8 characters
-    validates :user_name, length: { minimum: 5 }
+    validates :username, length: { minimum: 5 }
     validates :password_digest, length: { minimum: 8 }
 
     #Table relations

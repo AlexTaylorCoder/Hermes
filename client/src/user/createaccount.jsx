@@ -2,11 +2,11 @@
 
 import { useState } from "react";
 
-function CreateAccount( onLogin ) {
+function CreateAccount({onLogin}) {
 
     const[firstName, setFirstName] = useState("")
     const[lastName, setLastName] = useState("")
-    const[userName, setUserName] = useState("")
+    const[username, setUserName] = useState("")
     const[password, setPassword] = useState("")
     const[email, setEmail] = useState("")
     const[prof, setProf] = useState("")
@@ -19,7 +19,7 @@ function CreateAccount( onLogin ) {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ firstName, lastName, userName, password, email, prof, bio }),
+          body: JSON.stringify({ firstName, lastName, username, password, email, prof, bio }),
         })
           .then((r) => r.json())
           .then((users) => onLogin(users));
@@ -28,7 +28,7 @@ function CreateAccount( onLogin ) {
     return (
         <div id = "login">
              <div className = "container">
-                <form onsubmit = {handleSubmit} >
+                <form onSubmit = {handleSubmit}>
                     <h2> Hermes </h2>
 
                     <h4> Create account </h4>
