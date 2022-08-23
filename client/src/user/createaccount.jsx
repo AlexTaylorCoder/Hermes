@@ -1,12 +1,15 @@
 //This component is responsible for creating an account 
 
-import { useState } from "react";
+import { useContext, useState } from "react";
+import {useHistory} from "react-router-dom"
 
-function CreateAccount( onLogin ) {
+function CreateAccount( {setCreate} ) {
 
-    const[firstName, setFirstName] = useState("")
-    const[lastName, setLastName] = useState("")
-    const[userName, setUserName] = useState("")
+    const history = useHistory()
+
+    const[first_name, setFirstName] = useState("")
+    const[last_name, setLastName] = useState("")
+    const[username, setUserName] = useState("")
     const[password, setPassword] = useState("")
     const[email, setEmail] = useState("")
     const[prof, setProf] = useState("")
@@ -19,28 +22,28 @@ function CreateAccount( onLogin ) {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ firstName, lastName, userName, password, email, prof, bio }),
+          body: JSON.stringify({ first_name, last_name, username, password, email, prof, bio }),
         })
           .then((r) => r.json())
-          .then((users) => onLogin(users));
+          .then();
       }
 
     return (
         <div id = "login">
              <div className = "container">
-                <form onsubmit = {handleSubmit} >
+                <form onSubmit = {handleSubmit} >
                     <h2> Hermes </h2>
 
                     <h4> Create account </h4>
 
                     <lable for = "first_name">First Name</lable>
-                    <input id = "first_name" type = "text" placeholder = "First Name" value = {firstName} onChange={(e) => setFirstName(e.target.value)}/>
+                    <input id = "first_name" type = "text" placeholder = "First Name" value = {first_name} onChange={(e) => setFirstName(e.target.value)}/>
 
                     <label for = "last_name">Last Name</label>
-                    <input id = "last_name" type = "text" placeholder = "Last Name" value = {lastName} onChange={(e) => setLastName(e.target.value)}/>
+                    <input id = "last_name" type = "text" placeholder = "Last Name" value = {last_name} onChange={(e) => setLastName(e.target.value)}/>
 
                     <label for = "username">User Name</label>
-                    <input id = "username" type="text" placeholder="Username" value = {userName} onChange={(e) => setUserName(e.target.value)}/> 
+                    <input id = "username" type="text" placeholder="Username" value = {username} onChange={(e) => setUserName(e.target.value)}/> 
 
                     <label for = "password">Password</label>
                     <input id = "password" type="password" placeholder="Password" value = {password} onChange={(e) => setPassword(e.target.value)}/>
@@ -55,8 +58,10 @@ function CreateAccount( onLogin ) {
                     <input id = "bio" type = "text" placeholder="Bio" value = {bio} onChange={(e) => setBio(e.target.value)}/>
 
                     <button type = "submit">Create Account</button>
+                    <button onClick = {() => history.push("/login")}>Sign in</button>
 
                 </form>
+                
              </div>
         </div>
     )
