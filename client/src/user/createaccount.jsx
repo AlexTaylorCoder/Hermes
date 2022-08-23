@@ -3,6 +3,7 @@
 import { useContext, useState } from "react";
 import {useHistory} from "react-router-dom"
 
+
 function CreateAccount( {setCreate} ) {
 
     const history = useHistory()
@@ -22,7 +23,9 @@ function CreateAccount( {setCreate} ) {
           headers: {
             "Content-Type": "application/json",
           },
+
           body: JSON.stringify({ first_name, last_name, username, password, email, prof, bio }),
+
         })
           .then((r) => r.json())
           .then();
@@ -31,7 +34,8 @@ function CreateAccount( {setCreate} ) {
     return (
         <div id = "login">
              <div className = "container">
-                <form onSubmit = {handleSubmit} >
+
+                <form onSubmit = {handleSubmit}>
                     <h2> Hermes </h2>
 
                     <h4> Create account </h4>

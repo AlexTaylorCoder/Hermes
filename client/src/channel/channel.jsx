@@ -1,6 +1,7 @@
 
 
 function Channel() {
+    fetch("/channels")
 
     return (
         <div id = "channel">
