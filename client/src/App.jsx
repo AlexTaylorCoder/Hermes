@@ -2,10 +2,7 @@ import { useEffect, useState } from "react";
 import { Switch, Route } from "react-router-dom";
 import CreateAccount from "./user/createaccount";
 import Login from "./user/login";
-import Sidebar from "./channel/sidebar";
-import Topbar from "./channel/topbar";
-import ChannelContainer from "./channel/channelcontainer";
-import PostMesssage from "./channel/postmessage";
+import Home from "./channel/home";
 function App() { 
 
   const [user,setUser] = useState({})
@@ -20,7 +17,11 @@ function App() {
 
   },[])
 
+ //Fetch all channels 
+  // On click on channel fetch member and message info
+  //Pass down to sidebar which maps item
 
+  //Add on click to each item with goes to link
   console.log(user)
   return (
     <div>
@@ -33,8 +34,6 @@ function App() {
         </Route>
       </Switch>
     </div>
-
-    
   )
 }
 

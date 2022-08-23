@@ -3,7 +3,6 @@ import PostMesssage from "./postmessage";
 
 
 function ChannelContainer() {
-
     return (
         <div id ="channel-container">
             <div className="channel-top">
