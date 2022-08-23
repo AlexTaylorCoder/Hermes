@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+    skip_before_action :validate_user, only: [:create]
     before_action :search, except: [:index,:create]
     before_action :save_history, only: [:destroy,:update]
 

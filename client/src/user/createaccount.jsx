@@ -4,7 +4,7 @@ import { useContext, useState } from "react";
 import {useHistory} from "react-router-dom"
 
 
-function CreateAccount( {setCreate} ) {
+function CreateAccount( {setUser} ) {
 
     const history = useHistory()
 
@@ -17,6 +17,7 @@ function CreateAccount( {setCreate} ) {
     const[bio, setBio] = useState("")
 
     function handleSubmit(e) {
+      console.log("submit")
         e.preventDefault();
         fetch("/users", {
           method: "POST",
@@ -28,7 +29,7 @@ function CreateAccount( {setCreate} ) {
 
         })
           .then((r) => r.json())
-          .then();
+          .then(setUser);
       }
 
     return (
@@ -61,7 +62,7 @@ function CreateAccount( {setCreate} ) {
                     <label for = "bio">Bio</label>
                     <input id = "bio" type = "text" placeholder="Bio" value = {bio} onChange={(e) => setBio(e.target.value)}/>
 
-                    <button type = "submit">Create Account</button>
+                    <input type = "submit" value="Create Account"/>
                     <button onClick = {() => history.push("/login")}>Sign in</button>
 
                 </form>

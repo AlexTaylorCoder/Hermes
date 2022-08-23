@@ -14,8 +14,8 @@ function App() {
   useEffect(()=> {
 
 
-    fetch("/user")
-    .then( resp=>resp.json() )
+    fetch("/users")
+    .then(resp=>resp.json() )
     .then(setUser)
 
   },[])
@@ -23,29 +23,18 @@ function App() {
 
   console.log(user)
   return (
-
     <div>
       <Switch>
         <Route path = "/login">
-          <Login />
+          <Login setUser={setUser} />
         </Route>
         <Route path = "/">
-          <CreateAccount />
+          <CreateAccount setUser={setUser}/>
         </Route>
       </Switch>
-
-
-    {/* <div className="App">
-    <Topbar/>
-    <div className = "flex-items">
-      <Sidebar/>
-      <ChannelContainer/>
     </div>
-    {/* <CreateAccount/> */}
-    {/* <Login /> */}
-    {/* >>>>>>> 812c0177b9ba62434ccce9fa5646e1acd1e05b1c
-    </div> */}
-    </div> 
+
+    
   )
 }
 

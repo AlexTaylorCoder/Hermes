@@ -9,10 +9,6 @@
   margin: 0;
 }
 
-:root {
-  overflow: hidden;
-}
-
 input, textarea {
   border: none;
   border: none;
