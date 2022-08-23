@@ -6,11 +6,11 @@ function Message() {
         <div id = "message">
             <img src={src} height="50px" width="48px"/>
             <div className="message-header">
-                <h3>username</h3>
+                <div className="message-body">
+                    <h3>username</h3>
+                </div>
                 <h3><small>date</small></h3>
-            </div>
-            <div className="message-body">
-                <p>atawtawtawtawt</p>
+            
             </div>
         </div>
     )

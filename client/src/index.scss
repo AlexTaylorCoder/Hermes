@@ -12,6 +12,9 @@ $formsecondary: rgba(23,117,169,255);
     padding: 0;
     margin:0
 }
+:root {
+    overflow: hidden;
+}
 
 input, textarea {
     border: none;
@@ -68,6 +71,7 @@ textarea:focus {
     gap:20px;
     flex-direction: row;
     .topbar-search-input {
+        padding: 5px;
         width: 40%;
         height: 70%;
         border-radius: 5px;
@@ -81,6 +85,27 @@ textarea:focus {
         justify-content: flex-end;
         margin-left: 200px;
         justify-content: center;
+    }
+}
+#channel-container {
+    display: flex;
+    flex-direction: column;
+    .channel-top {
+        position:fixed;
+        height: 50px;
+        border: 1px solid darkgray;
+        width:100%;
+        padding: 10px;
+    }
+    .message-container {
+        margin-top: 100px;
+        padding: 10px;
+    }
+    .post-message-container {
+        padding: 20px;
+        position: fixed;
+        bottom: 20px;
+        width: 100%;
     }
 }
 #sidebar {
@@ -97,6 +122,15 @@ textarea:focus {
         display: flex;
         flex-direction: column;
     }
+    .expand-channels {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}
+.flex-items {
+    display: flex;
 }
 #message {
     display: flex;
@@ -104,8 +138,7 @@ textarea:focus {
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
-    width: 20%;
- 
+    width: 100%;
     gap: 20px;    
     .message-header {
         display: flex;
@@ -118,6 +151,7 @@ textarea:focus {
     .message-body {
         display:flex;
         flex-direction: column;
+        flex-wrap: wrap;
     }
     // p {
     //     inline-size: 70%; 
@@ -127,7 +161,7 @@ textarea:focus {
 }
 #post-message {
     margin: 0 auto;
-    width: 50%;
+    width: 100%;
     border-radius: 10px;
     border: 1px solid darkgray;
     .post-message-top {

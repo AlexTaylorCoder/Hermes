@@ -9,6 +9,10 @@
   margin: 0;
 }
 
+:root {
+  overflow: hidden;
+}
+
 input, textarea {
   border: none;
   border: none;
@@ -67,6 +71,7 @@ textarea:focus {
   flex-direction: row;
 }
 #topbar .topbar-search-input {
+  padding: 5px;
   width: 40%;
   height: 70%;
   border-radius: 5px;
@@ -88,6 +93,28 @@ textarea:focus {
   justify-content: center;
 }
 
+#channel-container {
+  display: flex;
+  flex-direction: column;
+}
+#channel-container .channel-top {
+  position: fixed;
+  height: 50px;
+  border: 1px solid darkgray;
+  width: 100%;
+  padding: 10px;
+}
+#channel-container .message-container {
+  margin-top: 100px;
+  padding: 10px;
+}
+#channel-container .post-message-container {
+  padding: 20px;
+  position: fixed;
+  bottom: 20px;
+  width: 100%;
+}
+
 #sidebar {
   display: flex;
   padding: 10px;
@@ -103,6 +130,16 @@ textarea:focus {
   display: flex;
   flex-direction: column;
 }
+#sidebar .expand-channels {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-items {
+  display: flex;
+}
 
 #message {
   display: flex;
@@ -110,7 +147,7 @@ textarea:focus {
   flex-direction: row;
   justify-content: center;
   align-items: flex-start;
-  width: 20%;
+  width: 100%;
   gap: 20px;
 }
 #message .message-header {
@@ -124,11 +161,12 @@ textarea:focus {
 #message .message-body {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
 }
 
 #post-message {
   margin: 0 auto;
-  width: 50%;
+  width: 100%;
   border-radius: 10px;
   border: 1px solid darkgray;
 }

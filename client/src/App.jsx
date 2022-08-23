@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import CreateAccount from "./user/createaccount";
 import Login from "./user/login";
-import PostMesssage from "./channel/postmessage";
-import Message from "./channel/message";
 import Sidebar from "./channel/sidebar";
 import Topbar from "./channel/topbar";
+import ChannelContainer from "./channel/channelcontainer";
+import PostMesssage from "./channel/postmessage";
 function App() { 
   const [user,setUser] = useState({})
 
@@ -16,9 +16,11 @@ function App() {
   return (
     <div className="App">
     <Topbar/>
-    <Sidebar/>
+    <div className = "flex-items">
+      <Sidebar/>
+      <ChannelContainer/>
+    </div>
     {/* <CreateAccount/> */}
-    <Message />
     {/* <Login /> */}
     </div>
   );

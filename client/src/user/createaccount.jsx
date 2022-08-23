@@ -40,7 +40,7 @@ function CreateAccount({onLogin}) {
                     <input id = "last_name" type = "text" placeholder = "Last Name" value = {lastName} onChange={(e) => setLastName(e.target.value)}/>
 
                     <label for = "username">User Name</label>
-                    <input id = "username" type="text" placeholder="Username" value = {userName} onChange={(e) => setUserName(e.target.value)}/> 
+                    <input id = "username" type="text" placeholder="Username" value = {username} onChange={(e) => setUserName(e.target.value)}/> 
 
                     <label for = "password">Password</label>
                     <input id = "password" type="password" placeholder="Password" value = {password} onChange={(e) => setPassword(e.target.value)}/>
