@@ -24,6 +24,7 @@ function App() {
   //Add on click to each item with goes to link
   console.log(user)
   return (
+
     <div>
       <Switch>
         <Route path = "/login">

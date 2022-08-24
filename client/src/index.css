@@ -60,11 +60,11 @@ textarea:focus {
 
 #topbar {
   background-color: rgb(23, 117, 169);
-  height: 40px;
   display: flex;
+  flex-direction: row;
+  height: 40px;
   padding: 3px;
   gap: 20px;
-  flex-direction: row;
 }
 #topbar .topbar-search-input {
   padding: 5px;
@@ -85,20 +85,30 @@ textarea:focus {
 }
 #topbar .topbar-left {
   justify-content: flex-end;
-  margin-left: 200px;
-  justify-content: center;
+  margin-left: 100px;
+}
+
+#home {
+  max-height: 100vh;
+  overflow: hidden;
 }
 
 #channel-container {
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
+  width: 100%;
+  align-items: flex-start;
 }
 #channel-container .channel-top {
   position: fixed;
-  height: 50px;
+  height: 45px;
   border: 1px solid darkgray;
   width: 100%;
-  padding: 10px;
+  padding: 0px 15px;
+  display: flex;
+  align-items: center;
+  gap: 1200px;
 }
 #channel-container .message-container {
   margin-top: 100px;
@@ -113,10 +123,10 @@ textarea:focus {
 
 #sidebar {
   display: flex;
-  padding: 10px;
+  padding: 20px;
   gap: 10px;
   flex-direction: column;
-  align-items: center;
+  overflow-y: auto;
   justify-content: flex-start;
   min-height: 100vh;
   width: 15%;
@@ -125,11 +135,12 @@ textarea:focus {
 #sidebar .sidebar-area {
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 #sidebar .expand-channels {
   display: flex;
+  padding: 0 5px;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
 }
 
@@ -160,53 +171,32 @@ textarea:focus {
   flex-wrap: wrap;
 }
 
-#post-message {
-  margin: 0 auto;
-  width: 100%;
-  border-radius: 10px;
-  border: 1px solid darkgray;
-}
-#post-message .post-message-top {
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  background-color: rgb(220, 220, 220);
-  height: 30px;
-  gap: 20px;
-  padding: 0 20px;
-}
-#post-message .post-message-bottom {
+.post-message-bottom {
   padding: 0 20px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   height: 20px;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  margin-bottom: 5px;
+  width: 100%;
+  gap: 40px;
 }
-#post-message .post-message-bottom .box-icon {
+.post-message-bottom .box-icon {
   border-radius: 50%;
   padding: 2px;
   background-color: lightgray;
   width: 25px;
   height: 25px;
 }
-#post-message .post-message-bottom .box-icon h3 {
+.post-message-bottom .box-icon p {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-#post-message textarea {
-  resize: none;
-  padding: 5px;
-  width: 100%;
-  height: 100px;
+.post-message-bottom .submit-message {
+  margin: 0 auto;
 }
-#post-message textarea:focus {
-  outline: none;
+.post-message-bottom .submit-message:hover {
+  cursor: pointer;
 }
 
 .center-form {
