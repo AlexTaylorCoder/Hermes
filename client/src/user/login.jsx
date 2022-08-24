@@ -3,7 +3,7 @@
 import { useState } from "react";
 import {useHistory} from "react-router-dom"
 
-function Login( ) {
+function Login({setUser} ) {
 
     const history = useHistory()
  
@@ -19,14 +19,14 @@ function Login( ) {
           },
           body: JSON.stringify({ username, password }),
         })
-          .then((r) => r.json())
-          .then();
+          .then((r) => r.ok ? history.push("/home") :  null)
+          .then(setUser);
       }
 
     return (
         <div id = "login">
              <div className = "container">
-                <form onsubmit = {handleSubmit} >
+                <form onSubmit = {handleSubmit} >
                     <h2> Hermes </h2>
 
                     <h4> Login </h4>
@@ -37,7 +37,7 @@ function Login( ) {
                     <label for = "password">Password</label>
                     <input id = "password" type="password" placeholder="Password" value = {password} onChange={(e) => setPassword(e.target.value)}/>
 
-                    <button type = "submit">Login</button>
+                    <input type = "submit" value="Login"/>
                     <button onClick = {() => history.push("/createaccount")}>Create Account</button>
 
                 </form>
