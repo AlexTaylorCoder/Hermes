@@ -7,16 +7,6 @@ function App() {
 
   const [user,setUser] = useState({})
 
-
-  useEffect(()=> {
-
-
-    fetch("/users")
-    .then(resp=>resp.json() )
-    .then(setUser)
-
-  },[])
-
  //Fetch all channels 
   // On click on channel fetch member and message info
   //Pass down to sidebar which maps item
@@ -31,11 +21,14 @@ function App() {
           <Login setUser={setUser} />
         </Route>
         <Route path = "/home">
-          <Home setUser={setUser} />
+          <Home setUser={user} />
         </Route>
         <Route path = "/">
           <CreateAccount setUser={setUser}/>
         </Route>
+        {/* <Route path = "/profile/:id">
+          <Profile />
+        </Route> */}
       </Switch>
     </div>
   )

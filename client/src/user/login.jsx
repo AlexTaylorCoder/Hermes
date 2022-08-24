@@ -19,8 +19,15 @@ function Login({setUser} ) {
           },
           body: JSON.stringify({ username, password }),
         })
-          .then((r) => r.ok ? history.push("/home") :  null)
-          .then(setUser);
+          .then((r) => {
+            if (r.ok) {
+              setUser(r.json())
+              history.push("/home")
+            }
+            else {
+              setUser(null)
+            }
+          })
       }
 
     return (

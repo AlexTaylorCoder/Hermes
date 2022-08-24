@@ -9,6 +9,10 @@
   margin: 0;
 }
 
+img {
+  border-radius: 10px;
+}
+
 input, textarea {
   border: none;
   border: none;
@@ -59,7 +63,10 @@ textarea:focus {
 }
 
 #topbar {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   background-color: rgb(23, 117, 169);
+  justify-content: center;
+  align-items: center;
   display: flex;
   flex-direction: row;
   height: 40px;
@@ -84,8 +91,33 @@ textarea:focus {
   color: white;
 }
 #topbar .topbar-left {
+  position: relative;
   justify-content: flex-end;
   margin-left: 100px;
+}
+
+.topbar-click {
+  z-index: 1;
+  position: absolute;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  bottom: -115px;
+  background-color: whitesmoke;
+}
+.topbar-click ul {
+  list-style-type: none;
+}
+.topbar-click .topbar-click-body {
+  padding: 0 10px;
+}
+.topbar-click .topbar-click-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
 }
 
 #home {
@@ -104,15 +136,19 @@ textarea:focus {
   position: fixed;
   height: 45px;
   border: 1px solid darkgray;
-  width: 100%;
-  padding: 0px 15px;
+  width: 88%;
+  padding: 0px 25px;
   display: flex;
   align-items: center;
-  gap: 1200px;
+  justify-content: space-between;
+}
+#channel-container .channel-top *:hover {
+  background-color: whitesmoke;
 }
 #channel-container .message-container {
   margin-top: 100px;
   padding: 10px;
+  width: 100%;
 }
 #channel-container .post-message-container {
   padding: 20px;
@@ -125,8 +161,8 @@ textarea:focus {
   display: flex;
   padding: 20px;
   gap: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   flex-direction: column;
-  overflow-y: auto;
   justify-content: flex-start;
   min-height: 100vh;
   width: 15%;
@@ -138,24 +174,90 @@ textarea:focus {
   justify-content: center;
 }
 #sidebar .expand-channels {
+  position: relative;
   display: flex;
   padding: 0 5px;
   flex-direction: column;
   justify-content: center;
 }
 
+.hover-darker:hover {
+  background-color: rgb(23, 117, 169);
+}
+
 .flex-items {
   display: flex;
+}
+
+#canvass {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  background-color: black;
+}
+#canvass h1 {
+  color: white;
+}
+
+#profile {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 20px;
+  z-index: 1;
+  background-color: white;
+  border: 1px solid darkgray;
+  height: 100vh;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+#profile .top-gap {
+  gap: 100px;
+}
+#profile .profile-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1px 5px;
+  gap: 25px;
+}
+#profile p {
+  color: blue;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+#profile .profile-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 1px 10px;
+  gap: 10px;
+}
+#profile .profile-section {
+  padding: 10px;
+}
+#profile .profile-section-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 1px 5px;
+  justify-content: space-between;
 }
 
 #message {
   display: flex;
   padding: 5px;
   flex-direction: row;
-  justify-content: center;
   align-items: flex-start;
-  width: 100%;
   gap: 20px;
+}
+#message:hover {
+  background-color: whitesmoke;
 }
 #message .message-header {
   display: flex;
@@ -179,6 +281,7 @@ textarea:focus {
   height: 20px;
   width: 100%;
   gap: 40px;
+  border-top: 1px dotted whitesmoke;
 }
 .post-message-bottom .box-icon {
   border-radius: 50%;
@@ -194,9 +297,61 @@ textarea:focus {
 }
 .post-message-bottom .submit-message {
   margin: 0 auto;
+  border-left: 1px solid darkgray;
+  outline: 1px dotted whitesmoke;
+  outline-offset: 4px;
+  padding: 2px;
 }
 .post-message-bottom .submit-message:hover {
   cursor: pointer;
+}
+
+.hover-request {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  background-color: orange;
+  opacity: 0.9;
+  gap: 5px;
+  right: -150px;
+}
+.hover-request .hover-request-header {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  background-color: orange;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid darkgrey;
+}
+.hover-request .hover-request-footer {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+}
+.hover-request .hover-request-footer .hover-request-footer-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.hover-request .hover-request-footer .hover-request-footer-button button {
+  padding: 2px;
+  width: 40px;
+  font-size: 9px;
+  font-weight: 600;
+  display: inline-block;
+  height: 15px;
+  border: none;
+}
+.hover-request .hover-request-footer .hover-request-footer-button .accept {
+  background-color: green;
+}
+.hover-request .hover-request-footer .hover-request-footer-button .decline {
+  background-color: red;
 }
 
 .center-form {
@@ -228,12 +383,6 @@ textarea:focus {
     background-color: rgb(23, 117, 169);
   }
 }
-#topbar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 #login .container {
   width: 100%;
   min-height: 100vh;
