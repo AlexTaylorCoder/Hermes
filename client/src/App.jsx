@@ -24,16 +24,17 @@ function App() {
   //Add on click to each item with goes to link
   console.log(user)
   return (
-    <div>
-      <Switch>
-        <Route path = "/login">
-          <Login setUser={setUser} />
-        </Route>
-        <Route path = "/">
-          <CreateAccount setUser={setUser}/>
-        </Route>
-      </Switch>
-    </div>
+    // <div>
+    //   <Switch>
+    //     <Route path = "/login">
+    //       <Login setUser={setUser} />
+    //     </Route>
+    //     <Route path = "/">
+    //       <CreateAccount setUser={setUser}/>
+    //     </Route>
+    //   </Switch>
+    // </div>
+    <Home/>
   )
 }
 

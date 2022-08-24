@@ -5,7 +5,6 @@ function Topbar() {
 
     return (
         <div id = "topbar">
-            
             <p>awrawr</p>
             <p>awrawr</p>
             <input className="topbar-search-input" placeholder="search" type='text'/>
