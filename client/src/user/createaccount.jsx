@@ -4,7 +4,7 @@ import { useContext, useState } from "react";
 import {useHistory} from "react-router-dom"
 
 
-function CreateAccount( {setUser} ) {
+function CreateAccount( {handleSetUser} ) {
 
     const history = useHistory()
 
@@ -29,7 +29,7 @@ function CreateAccount( {setUser} ) {
 
         })
           .then((r) => r.json())
-          .then(setUser);
+          .then(handleSetUser);
       }
 
     return (

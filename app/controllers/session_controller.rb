@@ -1,6 +1,12 @@
 class SessionController < ApplicationController
     skip_before_action :validate_user, except: [:logout]
     rescue_from ActiveRecord::RecordNotFound, with: :not_found
+
+    def show
+        current_user = User.find(session[:user_id])
+        render json: current_user
+    end
+
     def login
 
         user = User.find_by(username: params[:username])

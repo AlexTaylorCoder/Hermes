@@ -10,6 +10,15 @@ function App() {
  //Fetch all channels 
   // On click on channel fetch member and message info
   //Pass down to sidebar which maps item
+  useEffect(()=> {
+    fetch("/auth").then(resp=>resp.json()).then(setUser)
+
+  },[])
+
+
+  function handleSetUser(returned) {
+    setUser(returned)
+  }
 
   //Add on click to each item with goes to link
   console.log(user)
@@ -18,13 +27,13 @@ function App() {
     <div>
       <Switch>
         <Route path = "/login">
-          <Login setUser={setUser} />
+          <Login handleSetUser={handleSetUser} />
         </Route>
         <Route path = "/home">
-          <Home setUser={user} />
+          <Home user={user} />
         </Route>
         <Route path = "/">
-          <CreateAccount setUser={setUser}/>
+          <CreateAccount handleSetUser={handleSetUser}/>
         </Route>
         {/* <Route path = "/profile/:id">
           <Profile />

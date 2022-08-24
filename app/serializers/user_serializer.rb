@@ -3,6 +3,5 @@ class UserSerializer < ActiveModel::Serializer
 
   has_many :channels 
   has_many :requests
-  has_many :members
   
 end

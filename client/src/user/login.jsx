@@ -3,12 +3,14 @@
 import { useState } from "react";
 import {useHistory} from "react-router-dom"
 
-function Login({setUser} ) {
+function Login({handleSetUser} ) {
 
     const history = useHistory()
  
     const[username, setUserName] = useState("")
     const[password, setPassword] = useState("")
+
+    const[success,setSuccess] = useState(false)
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -21,11 +23,7 @@ function Login({setUser} ) {
         })
           .then((r) => {
             if (r.ok) {
-              setUser(r.json())
-              history.push("/home")
-            }
-            else {
-              setUser(null)
+              r.json().then(()=>handleSetUser).then(()=>history.push("/home"))
             }
           })
       }
