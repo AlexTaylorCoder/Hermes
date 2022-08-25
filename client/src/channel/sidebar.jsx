@@ -1,16 +1,23 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import {IoMdArrowDropdownCircle,IoMdArrowDropupCircle} from "react-icons/io"
+import {AiOutlinePlus} from "react-icons/ai"
+import CreateChannel from "./createchannel"
 
 const src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAMAAABHPGVmAAAAMFBMVEXi4uImJiadnZ2SkpLZ2dlsbGxdXV15eXnGxsaoqKiysrKGhoZNTU3Q0NA7Ozu8vLx+CZkfAAAAtElEQVRoge3T2Q6DIBCF4Tkim0t9/7etS22TWg2a3pj834WTcCKDgGYAAAAAAAC4qVbV+Kyj5PtPLc8L1F7zJEHOPbr6XUvzIkFxmiTLmVWq1lqcF8lpfqVVY5bk1zoomEUNe/m5Jq91RaVxaxTWOo02y4J/539pYuHRhaP8QpPtdmQpH+UXmmwPNnTdcol28jOS8/Ku31zRccmN4n5+8jsmzffPNqidDiLv5QAAAAAAALilJ/frBu723vpKAAAAAElFTkSuQmCC"
 
 
-function Sidebar() {
+function Sidebar({handleAddChannel,channels=[],handleSwitchChannel}) {
     //Contains channels and at bottom creatte channel
+    const [modalShow,setModalShow] = useState(false)
     const [expandChannel,setExpandChannel] = useState(true)
     const [expandChat,setExpandChat] = useState(true)
     const [expandRequest,setExpandRequest] = useState(true)
 
     const [hoverRequest,setHoverRequest] = useState(false)
+
+    console.log(channels)
+    
+    const channelsList = channels.map(channel=><h3 id={channel.id} onClick={handleSwitchChannel} key={channel.id}>{channel.name}</h3>)
 
     function handleClickProfile() {
         //Redirect to profile page of user 
@@ -29,7 +36,7 @@ function Sidebar() {
         <div id = "sidebar">
             <div className="sidebar-area">  
                 <h3 className="hover-darker" onClick={()=>setExpandChannel(!expandChannel)}> {expandChannel ? <IoMdArrowDropdownCircle/> : <IoMdArrowDropupCircle/>}  Channels</h3>
-                {expandChannel ? <div className="expand-channels"><h3># random</h3><h3> # random</h3></div> : null}
+                {expandChannel ? <div className="expand-channels"> {channelsList}</div> : null}
                 <h3 className="hover-darker" onClick={()=>setExpandChat(!expandChat)}> {expandChat ? <IoMdArrowDropdownCircle/> : <IoMdArrowDropupCircle/>}  Chats</h3>
                 {expandChat ? <div className="expand-channels"><h3># random</h3><h3> # random</h3></div> : null}
                 <h3 className="hover-darker" onClick={()=>setExpandRequest(!expandRequest)}> {expandRequest ? <IoMdArrowDropdownCircle/> : <IoMdArrowDropupCircle/>}  Requests</h3>
@@ -48,6 +55,8 @@ function Sidebar() {
                                 </div> 
                             </div> : null}
                     </div> : null}
+                <h3 onClick={()=>setModalShow(true)} className="hover-darker"><AiOutlinePlus/> Create Channel</h3>
+                <CreateChannel  handleAddChannel={handleAddChannel} show = {modalShow} onHide={() => setModalShow(false)}/>
             </div>
         </div>
     )

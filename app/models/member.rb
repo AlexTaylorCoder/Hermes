@@ -4,4 +4,6 @@ class Member < ApplicationRecord
 
     belongs_to :user
     belongs_to :channel
+
+    has_many :messages
 end

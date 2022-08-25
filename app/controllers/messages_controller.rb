@@ -2,9 +2,9 @@ class MessagesController < ApplicationController
     prepend_before_action :search, except: [:index,:create]
     before_action :save_history, only: [:destroy,:update]
 
-
     def create
-        render json: Message.create!(message_params), status: 202
+        user = User.find(session[:user_id])
+        render json: user.messages.create!(message_params), status: 202
     end
 
     def index
@@ -35,7 +35,7 @@ class MessagesController < ApplicationController
     
     private
     def message_params
-        params.permit(:post,:isPinned,:likes,:user_id,:channel_id,:sub_channel_id)
+        params.permit(:post,:channel_id)
     end
 
     def save_history
