@@ -1,9 +1,10 @@
 class RequestsController < ApplicationController
     prepend_before_action :search, except: [:index,:create]
-
+    rescue_from ActiveRecord::RecordNotFound, with: :not_found
 
     def create
-        render json: Request.create!(create_params), status: 202
+        user = User.find_by!(username:params[:username])
+        render json: Request.create!(message:params[:message],user_id:user.id,member_id:params[:member_id]), status: 202
     end
 
     def index
@@ -34,8 +35,11 @@ class RequestsController < ApplicationController
     end
     
     private
+    def not_found
+        render json: {error: "Username not found!"}
+    end
     def create_params
-        params.permit(:message,:member_id,:user_id)
+        params.permit(:message,:member_id,:username)
     end
 
     def patch_params

@@ -8,9 +8,9 @@ const header = {
     headers: {"Content-type": "application/json"}
 }
 
-function CreateChannel({show,onHide,handleAddChannel}) {
+function CreateChannel({show,onHide,handleAddChannel,modalData=""}) {
     // const navigate = useNavigate()
-
+    console.log(modalData)
     const [name,setName] = useState("")
     // function handleSubmit(e) { 
     //     e.preventDefault()
@@ -21,7 +21,10 @@ function CreateChannel({show,onHide,handleAddChannel}) {
     // }
     function handleSubmit() {
         onHide()
-        fetch("/channels",{...header,body:JSON.stringify({name})}).then(resp=>resp.json()).then(handleAddChannel)
+        if (modalData === "channel") {
+          fetch("/channels",{...header,body:JSON.stringify({name})}).then(resp=>resp.json()).then(handleAddChannel)
+        }
+
     }
 
     return (
@@ -35,17 +38,17 @@ function CreateChannel({show,onHide,handleAddChannel}) {
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
           <h2>
-            Create Channel
+            Create {modalData}
           </h2>
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
       <Form>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>Channel Name</Form.Label>
+              <Form.Label>{modalData === "channel" ? "Create Channel" : "Send to Username"} </Form.Label>
               <Form.Control onChange={(e)=>setName(e.target.value)}
-                type="email"
-                placeholder="Channel"
+                type="text"
+                placeholder={modalData}
                 autoFocus
               />
             </Form.Group>

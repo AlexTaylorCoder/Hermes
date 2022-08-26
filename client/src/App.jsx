@@ -16,7 +16,9 @@ function App() {
   },[])
 
 
+
   function handleSetUser(returned) {
+    console.log(returned)
     setUser(returned)
   }
 

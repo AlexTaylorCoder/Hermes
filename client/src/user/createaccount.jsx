@@ -29,7 +29,7 @@ function CreateAccount( {handleSetUser} ) {
 
         })
           .then((r) => r.json())
-          .then(handleSetUser);
+          .then(handleSetUser).then(()=>history.push("/home"));
       }
 
     return (

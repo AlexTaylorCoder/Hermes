@@ -13,6 +13,8 @@ function Home({user={}}) {
     const [channels, setChannels] = useState([])
     const [details, setDetails] = useState({})
 
+    console.log(user.requests)
+
    useEffect(()=> {
       if (user.channels) {
           if (user.channels.length > 0) {
@@ -30,14 +32,15 @@ function Home({user={}}) {
       console.log(returned)
       setCurrentChannel(returned)
       setChannels([...channels,returned])
-
     }
+
     console.log(user)
     console.log(channels)
     
     function handleSwitchChannel(returned) {
       const id = returned.target.id
       fetch("/channels/"+id).then(resp=>resp.json()).then(setCurrentChannel)
+      
     }
 
     function handleProfileClick() {
@@ -45,11 +48,11 @@ function Home({user={}}) {
     }
     return (
         <div id = "home">
-        <Topbar handleProfileClick={handleProfileClick}/>
+        <Topbar handleProfileClick={handleProfileClick} prof={user.prof}/>
         <div className = "flex-items">
-          <Sidebar handleAddChannel={handleAddChannel} channels={user.channels} handleSwitchChannel={handleSwitchChannel} />
+          <Sidebar handleAddChannel={handleAddChannel} channels={user.channels} requests={user.requests} handleSwitchChannel={handleSwitchChannel} />
           {/* <Load/> */}
-          <ChannelContainer currentChannel={currentChannel} />
+          <ChannelContainer currentChannel={currentChannel} userId={user.id} />
         { profileClick ? <Profile details={{username:user.username,first_name:user.first_name,last_name:user.last_name,email:user.email,prof:user.prof,bio:user.bio}} setProfileClick={setProfileClick}/> : null}
 
         </div>

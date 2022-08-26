@@ -71,7 +71,7 @@ class PostMesssage extends React.Component {
     const contextstate = convertToRaw(this.state.editorState.getCurrentContent())
     const markup = draftToHtml(contextstate)
     fetch("/messages",{...header,
-      body: JSON.stringify({post:markup,channel_id:this.props.channel_id})})
+      body: JSON.stringify({post:markup,channel_id:this.props.channel_id,member_id:this.props.member_id})})
   }
 
   render() {

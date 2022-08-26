@@ -11,7 +11,13 @@ class ChannelsController < ApplicationController
         if !@member
             render json: @channel, serializer: ChannelpreviewSerializer
         elsif @member
-            render json: @channel, serializer: ChannelfullSerializer
+            channel = ActiveModelSerializers::SerializableResource.new(@channel, {serializer: ChannelfullSerializer}).as_json
+
+            response = {channel:channel,member:@member}
+
+            render json: response
+
+          
         end
     end
 

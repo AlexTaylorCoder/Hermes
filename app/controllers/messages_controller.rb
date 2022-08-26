@@ -35,11 +35,12 @@ class MessagesController < ApplicationController
     
     private
     def message_params
-        params.permit(:post,:channel_id)
+        params.permit(:post,:channel_id,:member_id)
     end
 
     def save_history
-        MessageHistory.create(@message.attributes)
+        # byebug
+        # MessageHistory.create(@message.attributes)
     end
 
     def search
