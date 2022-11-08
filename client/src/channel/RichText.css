@@ -1,10 +1,15 @@
 .RichEditor-root {
-    background: #fff;
+    background-color: rgba(255,255,255,.5);
     border: 1px solid #ddd;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 5px;
     font-family: 'Georgia', serif;
     font-size: 14px;
     padding: 15px;
     width: 84%;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   }
   
   .RichEditor-editor {

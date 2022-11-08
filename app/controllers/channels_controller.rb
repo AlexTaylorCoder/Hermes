@@ -23,10 +23,14 @@ class ChannelsController < ApplicationController
 
     def create
         channel = Channel.create!(permitted)
+        # byebug
         username = User.find(session[:user_id]).username
-        Member.create(isAdmin:true,channel_id:channel.id,user_id:session[:user_id],name:username)
+        member = Member.create!(isAdmin:true,channel_id:channel.id,user_id:session[:user_id],name:username)
 
-        render json: channel
+        channelSerial = ActiveModelSerializers::SerializableResource.new(channel, {serializer: ChannelfullSerializer}).as_json
+
+        response = {channel:channelSerial,member:member}
+        render json: response
     end
 
     # def update
@@ -47,7 +51,7 @@ class ChannelsController < ApplicationController
         end
     end
     def permitted
-        params.permit(:name,:isPinned)
+        params.permit(:name)
     end
 
     def search

@@ -25,7 +25,8 @@ function Cube({position}) {
 
 function Load() {
 
-  const [position,setPosition] = useState([0,0,0])
+  const [position,setPosition] = useState([-3,0,-4])
+  const [position2,setPosition2] = useState([3,0,-4])
   useEffect(()=> {
     window.addEventListener("keydown",(e)=> {
       switch (e.key) {
@@ -58,6 +59,7 @@ function Load() {
         <ambientLight intensity={0.5} />
         <pointLight position = {[-10,10,2]}/>
         <Cube position={position}/>
+        <Cube position={position2}/>
       </Canvas> 
     </div>
   );

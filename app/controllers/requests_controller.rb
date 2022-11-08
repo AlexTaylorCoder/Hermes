@@ -4,7 +4,9 @@ class RequestsController < ApplicationController
 
     def create
         user = User.find_by!(username:params[:username])
-        render json: Request.create!(message:params[:message],user_id:user.id,member_id:params[:member_id]), status: 202
+        # if (user)
+        render json: Request.create!(message:params[:message],
+            user_id:user.id,member_id:params[:member_id],channel_id:params[:channel_id]), status: 202
     end
 
     def index
@@ -39,7 +41,7 @@ class RequestsController < ApplicationController
         render json: {error: "Username not found!"}
     end
     def create_params
-        params.permit(:message,:member_id,:username)
+        params.permit(:message,:member_id,:username,:channel_id)
     end
 
     def patch_params

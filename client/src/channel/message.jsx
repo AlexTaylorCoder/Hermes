@@ -21,7 +21,7 @@ function Message({post="",likes="",isPinned="",createdAt="",updatedAt="", sender
     return (
         <div id = "message" onMouseLeave={()=>setHoverMessage(false)} onMouseEnter={()=>setHoverMessage(true)}>
             <div className="message-header">
-            <img src={sender.prof} height="50px" width="48px"/>
+            <img className="no-stretch-image" src={sender.prof} height="50px" width="48px"/>
                 <div className="message-body">
                     <h3>{sender.username}</h3>
                 </div>

@@ -6,7 +6,7 @@ import RequestModal from "./requestmodal";
 import DeleteModal from "./deletechannel";
 
 //Useef
-function ChannelContainer({currentChannel={},userId}) {
+function ChannelContainer({currentChannel={},userId,handleDeleteChannel}) {
 
 
     const [load,setLoad] = useState(false)
@@ -46,8 +46,8 @@ function ChannelContainer({currentChannel={},userId}) {
                 <div className="post-message-container">
                     <PostMesssage member_id={currentChannel.member.id} channel_id={currentChannel.channel.id}  />
                 </div> 
-                <RequestModal member_id={currentChannel.member.id} show={modalShow} onHide={() => setModalShow(false)}/>
-                <DeleteModal name={currentChannel.channel.name} id={currentChannel.channel.id} show={deleteModalShow} onHide={()=> setDeleteModal(false)}/>
+                <RequestModal channel_id={currentChannel.channel.id} member_id={currentChannel.member.id} show={modalShow} onHide={() => setModalShow(false)}/>
+                <DeleteModal handleDeleteChannel={handleDeleteChannel} name={currentChannel.channel.name} id={currentChannel.channel.id} show={deleteModalShow} onHide={()=> setDeleteModal(false)}/>
             </>
             : <Load/> }
         </div>

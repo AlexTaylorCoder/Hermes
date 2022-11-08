@@ -1,6 +1,7 @@
 class MembersController < ApplicationController
     prepend_before_action :search, except: [:index,:create]
     before_action :save_history, only: [:destroy,:update]
+    before_action :member_params, only: [:create]
 
     # When joining a channel check if user and channel have relatioship through 
     # member. If true send back member, else check requests. 
@@ -11,7 +12,17 @@ class MembersController < ApplicationController
     # To access user history see if admin true
  
     def create
-        render json: Member.create!(member_params), status: 202
+        user = User.find(session[:user_id])
+
+
+        member = user.members.create!(member_params)
+        channel = Channel.find(params[:channel_id])
+
+        channelSerial = ActiveModelSerializers::SerializableResource.new(channel, {serializer: ChannelfullSerializer}).as_json
+
+        response = {channel:channelSerial,member:member}
+
+        render json: response
     end
 
     def index
@@ -28,8 +39,9 @@ class MembersController < ApplicationController
     end
     
     private
+    
     def member_params
-        params.permit(:user_id,:channel_id,:isAdmin)
+        params.permit(:channel_id)
     end
 
     def save_history

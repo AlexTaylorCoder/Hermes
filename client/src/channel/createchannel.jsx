@@ -10,7 +10,7 @@ const header = {
 
 function CreateChannel({show,onHide,handleAddChannel,modalData=""}) {
     // const navigate = useNavigate()
-    console.log(modalData)
+
     const [name,setName] = useState("")
     // function handleSubmit(e) { 
     //     e.preventDefault()
@@ -62,7 +62,7 @@ function CreateChannel({show,onHide,handleAddChannel,modalData=""}) {
           </Form>
       </Modal.Body>
       <Modal.Footer>
-      <Button variant="primary" onClick={handleSubmit}>Save Changes</Button>
+      <Button variant="primary" onClick={handleSubmit}>Create</Button>
         <Button variant="danger" onClick={onHide}>Close</Button>
       </Modal.Footer>
     </Modal>

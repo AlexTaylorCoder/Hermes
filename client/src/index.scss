@@ -12,58 +12,60 @@ $formsecondary: rgba(23,117,169,255);
     padding: 0;
     margin:0
 }
-
+html {
+    font-size: 11px;
+  }
 img {
     border-radius: 10px;
 }
 
-input, textarea {
-    border: none;
-    border: none;
-}
-input:focus {
-    outline: none;
-    background-color: $formcolorfocus;
-    border-bottom: 2px solid $formsecondary;
-}
-textarea:focus {
-    outline: 2px solid $formsecondary;
-}
-#create-account {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px;
-    width: 50%;    
-    gap: 10px;
-    padding: 40px;
-    color: white;
-    font-size: 22px;
-    background-color:$formcolor;
-    h1 {
-        border-bottom: 2px solid white;
-    }
-    input,textarea {
-        margin-left: 5px;
-        padding: 10px;
-        color: white;
-        background-color: $formcolor;
-        font-size: 18px;
-        border-left: 1px solid white;
-        transition: 300ms;
+// input, textarea {
+//     border: none;
+//     border: none;
+// }
+// input:focus {
+//     outline: none;
+//     background-color: $formcolorfocus;
+//     border-bottom: 2px solid $formsecondary;
+// }
+// textarea:focus {
+//     outline: 2px solid $formsecondary;
+// }
+// #create-account {
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     align-items: center;
+//     border-radius: 10px;
+//     width: 50%;    
+//     gap: 10px;
+//     padding: 40px;
+//     color: white;
+//     font-size: 22px;
+//     background-color:$formcolor;
+//     h1 {
+//         border-bottom: 2px solid white;
+//     }
+//     input,textarea {
+//         margin-left: 5px;
+//         padding: 10px;
+//         color: white;
+//         background-color: $formcolor;
+//         font-size: 18px;
+//         border-left: 1px solid white;
+//         transition: 300ms;
 
-    }
+//     }
 
-    input[type="submit"] {
-        margin-top: 10px;
-        background-color: $formsecondary;
-        width: 25%;
-        &:hover {
-            background-color: darkcyan;
-        }
-    }
-}
+//     input[type="submit"] {
+//         margin-top: 10px;
+//         background-color: $formsecondary;
+//         width: 25%;
+//         &:hover {
+//             background-color: darkcyan;
+//         }
+//     }
+// }
 
 #topbar {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -99,7 +101,7 @@ textarea:focus {
     display: flex;
     flex-direction: column;
     border-radius: 10px;
-    bottom: -115px;
+    bottom: -140px;
     background-color: whitesmoke;
     ul {
         list-style-type: none;
@@ -126,6 +128,7 @@ textarea:focus {
     overflow-y: auto;
     width: 100%;
     align-items: flex-start;
+    background-color: rgba(173, 216, 230,.6);
     .channel-top {
         position:fixed;
         height: 45px;
@@ -145,8 +148,10 @@ textarea:focus {
         width: 100%;
     }
     .post-message-container {
+        background-color: rgba(173, 216, 230,.1);
         padding: 20px;
         position: fixed;
+        margin-left: 20px;
         bottom: 20px;
         width: 100%;
     }
@@ -159,7 +164,11 @@ textarea:focus {
     flex-direction: column;
     justify-content: flex-start;
     min-height: 100vh;
+    color: rgba(255, 255, 255, 0.8);
     width: 15%;
+    h3 > * {
+        color:rgba(0,0,0, 0.8)
+    }
     // overflow-y: auto;
     background-color: $formcolor;
     .sidebar-area {
@@ -168,7 +177,6 @@ textarea:focus {
         justify-content: center;
     }
     .expand-channels {
-
         position: relative;
         display: flex;
         padding: 0 5px;
@@ -328,15 +336,16 @@ textarea:focus {
     display: flex;
     flex-direction: column;
     padding: 10px; 
-    background-color: orange;
+    background-color: whitesmoke;
     opacity: .9;
     gap: 5px;
-    right:-150px;
+    right:-100px;
     .hover-request-header {
         display: flex;
         flex-direction: row;
         gap:10px;
-        background-color: orange;
+        padding: 5px;
+        background-color: lightblue;
         align-items: center; 
         justify-content: center;
         border: 1px solid darkgrey;
@@ -354,12 +363,13 @@ textarea:focus {
             flex-direction: column;
             button {
                 padding: 2px;
-                width: 40px;
+                width: 80px;
                 font-size: 9px;
                 font-weight: 600;
                 display: inline-block;
-                height: 15px;
+                height: 20px;
                 border: none;
+                border-radius: 3px;
             }
             .accept {
                 background-color: green;
@@ -387,7 +397,7 @@ textarea:focus {
 }
 
 #login {
-    .container {
+    .login-container {
         width: 100%;
         min-height: 100vh;
         display: flex;

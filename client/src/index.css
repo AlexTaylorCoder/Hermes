@@ -9,58 +9,15 @@
   margin: 0;
 }
 
+html {
+  font-size: 11px;
+}
+
 img {
   border-radius: 10px;
 }
 
-input, textarea {
-  border: none;
-  border: none;
-}
 
-input:focus {
-  outline: none;
-  background-color: rgb(40, 149, 193);
-  border-bottom: 2px solid rgb(23, 117, 169);
-}
-
-textarea:focus {
-  outline: 2px solid rgb(23, 117, 169);
-}
-
-#create-account {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 10px;
-  width: 50%;
-  gap: 10px;
-  padding: 40px;
-  color: white;
-  font-size: 22px;
-  background-color: rgb(40, 149, 193);
-}
-#create-account h1 {
-  border-bottom: 2px solid white;
-}
-#create-account input, #create-account textarea {
-  margin-left: 5px;
-  padding: 10px;
-  color: white;
-  background-color: rgb(40, 149, 193);
-  font-size: 18px;
-  border-left: 1px solid white;
-  transition: 300ms;
-}
-#create-account input[type=submit] {
-  margin-top: 10px;
-  background-color: rgb(23, 117, 169);
-  width: 25%;
-}
-#create-account input[type=submit]:hover {
-  background-color: darkcyan;
-}
 
 #topbar {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -103,7 +60,7 @@ textarea:focus {
   display: flex;
   flex-direction: column;
   border-radius: 10px;
-  bottom: -115px;
+  bottom: -140px;
   background-color: whitesmoke;
 }
 .topbar-click ul {
@@ -131,6 +88,7 @@ textarea:focus {
   overflow-y: auto;
   width: 100%;
   align-items: flex-start;
+  background-color: rgba(173, 216, 230, 0.6);
 }
 #channel-container .channel-top {
   position: fixed;
@@ -151,8 +109,10 @@ textarea:focus {
   width: 100%;
 }
 #channel-container .post-message-container {
+  background-color: rgba(173, 216, 230, 0.1);
   padding: 20px;
   position: fixed;
+  margin-left: 20px;
   bottom: 20px;
   width: 100%;
 }
@@ -165,8 +125,12 @@ textarea:focus {
   flex-direction: column;
   justify-content: flex-start;
   min-height: 100vh;
+  color: rgba(255, 255, 255, 0.8);
   width: 15%;
   background-color: rgb(40, 149, 193);
+}
+#sidebar h3 > * {
+  color: rgba(0, 0, 0, 0.8);
 }
 #sidebar .sidebar-area {
   display: flex;
@@ -179,6 +143,10 @@ textarea:focus {
   padding: 0 5px;
   flex-direction: column;
   justify-content: center;
+}
+
+.no-stretch-image {
+  object-fit: cover;
 }
 
 .hover-darker:hover {
@@ -311,16 +279,17 @@ textarea:focus {
   display: flex;
   flex-direction: column;
   padding: 10px;
-  background-color: orange;
+  background-color: whitesmoke;
   opacity: 0.9;
   gap: 5px;
-  right: -150px;
+  right: -100px;
 }
 .hover-request .hover-request-header {
   display: flex;
   flex-direction: row;
   gap: 10px;
-  background-color: orange;
+  padding: 5px;
+  background-color: lightblue;
   align-items: center;
   justify-content: center;
   border: 1px solid darkgrey;
@@ -340,12 +309,13 @@ textarea:focus {
 }
 .hover-request .hover-request-footer .hover-request-footer-button button {
   padding: 2px;
-  width: 40px;
+  width: 80px;
   font-size: 9px;
   font-weight: 600;
   display: inline-block;
-  height: 15px;
+  height: 20px;
   border: none;
+  border-radius: 3px;
 }
 .hover-request .hover-request-footer .hover-request-footer-button .accept {
   background-color: green;
@@ -383,7 +353,7 @@ textarea:focus {
     background-color: rgb(23, 117, 169);
   }
 }
-#login .container {
+#login .login-container {
   width: 100%;
   min-height: 100vh;
   display: flex;

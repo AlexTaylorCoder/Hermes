@@ -31,7 +31,7 @@ function Login({handleSetUser} ) {
 
     return (
         <div id = "login">
-             <div className = "container">
+             <div className = "login-container">
                 <form onSubmit = {handleSubmit} >
                     <h2> Hermes </h2>
 

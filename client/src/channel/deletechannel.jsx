@@ -4,7 +4,7 @@ const header = {
     method: "DELETE",
     headers: {"Content-type": "application/json"}
 }
-function DeleteModal({show,onHide,name,id}) {
+function DeleteModal({show,onHide,name,id,handleDeleteChannel}) {
     const [channelName,setChannelName] = useState("")
     const [error,setError] = useState(false)
 
@@ -12,7 +12,7 @@ function DeleteModal({show,onHide,name,id}) {
         onHide()
 
         if (channelName === name) {
-            fetch("/channels/"+id,header)
+            fetch("/channels/"+id,header).then(()=>handleDeleteChannel(id))
         }
         else {
             setError(true)
@@ -46,7 +46,7 @@ function DeleteModal({show,onHide,name,id}) {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-            <Button variant="primary" onClick={handleSubmit}>Save Changes</Button>  
+            <Button variant="primary" onClick={handleSubmit}>Destroy Channel</Button>  
             <Button onClick={onHide}>Close</Button>
         </Modal.Footer>
       </Modal>

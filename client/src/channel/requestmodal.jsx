@@ -4,14 +4,14 @@ const header = {
     method: "POST",
     headers: {"Content-type": "application/json"}
 }
-function RequestModal({show,onHide,member_id}) {
+function RequestModal({show,onHide,member_id,channel_id}) {
     const [username,setUserName] = useState("")
     const [message,setMessage] = useState("")
 
     function handleSubmit() {
         onHide()
         fetch("/requests",{...header,body:JSON.stringify(
-            {member_id,message,username}
+            {member_id,message,username,channel_id}
         )}).then(resp=>resp.json()).then(data=>console.log(data))
 
         //   fetch("/channels",{...header,body:JSON.stringify({name})}).then(resp=>resp.json()).then(handleAddChannel)
@@ -35,7 +35,7 @@ function RequestModal({show,onHide,member_id}) {
               <Form.Label>Send to username</Form.Label>
               <Form.Control onChange={(e)=>setUserName(e.target.value)}
                 type="text"
-                placeholder="enter username"
+                placeholder="Enter username"
                 autoFocus
               />
             </Form.Group>
@@ -49,7 +49,7 @@ function RequestModal({show,onHide,member_id}) {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-            <Button variant="primary" onClick={handleSubmit}>Save Changes</Button>  
+            <Button variant="primary" onClick={handleSubmit}>Send</Button>  
             <Button onClick={onHide}>Close</Button>
         </Modal.Footer>
       </Modal>

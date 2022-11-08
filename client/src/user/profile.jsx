@@ -3,8 +3,6 @@ import {MdOutlineMail} from "react-icons/md"
 import {BsTelephone} from "react-icons/bs"
 import { useState } from "react"
 
-const src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAMAAABHPGVmAAAAMFBMVEXi4uImJiadnZ2SkpLZ2dlsbGxdXV15eXnGxsaoqKiysrKGhoZNTU3Q0NA7Ozu8vLx+CZkfAAAAtElEQVRoge3T2Q6DIBCF4Tkim0t9/7etS22TWg2a3pj834WTcCKDgGYAAAAAAAC4qVbV+Kyj5PtPLc8L1F7zJEHOPbr6XUvzIkFxmiTLmVWq1lqcF8lpfqVVY5bk1zoomEUNe/m5Jq91RaVxaxTWOo02y4J/539pYuHRhaP8QpPtdmQpH+UXmmwPNnTdcol28jOS8/Ku31zRccmN4n5+8jsmzffPNqidDiLv5QAAAAAAALilJ/frBu723vpKAAAAAElFTkSuQmCC"
-
 function Profile({setProfileClick,details}) {
     console.log(details)
     const [editContact,setEditContact] = useState(false)
@@ -14,7 +12,7 @@ function Profile({setProfileClick,details}) {
             <div className="profile-header">
                 <h2>Profile</h2><IoMdClose onClick={()=>setProfileClick(false)}/>
             </div>
-            <img width="250px" height="250px" src = {src}/>
+            <img className="no-stretch-image" width="250px" height="250px" src = {details.prof}/>
             <div className="profile-section-header">
                 <h3>{details.username}</h3> <p>Edit</p>
             </div>
