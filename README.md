@@ -19,8 +19,7 @@
         Next would be a way to browse channels and request access to join; currently channels are invite only.
         Lastly, incorpoting message history and additional role and administration features would round of the project
     </p>
-
     <img src = "https://i.gyazo.com/a652d9e738a995a8ddf742354c3a4b87.png" alt="Project Screenshot"/>
     <h2> Contributors </h2>
     <h4> Alex Taylor and Celestino Martinez </h4>
-<section>
+</section>
