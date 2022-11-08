@@ -1,7 +1,7 @@
 <h2>
     Start the project:
-        <p> Back-end - rails s </p>
-        <p> Front-end npm start </p>
+    <p> Backend: <b>rails s</b> </p>
+    <p> Frontend: <b> npm start</b> </p>
 </h2>
     <h3> Project Overview </h3>
     <p>
