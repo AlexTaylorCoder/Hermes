@@ -15,7 +15,7 @@
     <h3> Additional Goals </h3>
     <p>
         The first would be incorporating Rails Action Cable into the project, to fully flush out the "live" features of the application.
-        A seconday goal would be incorporating Rails Active Storage to locally store user profile pictures and other media.
+        Second is incorporating Rails Active Storage to locally store user profile pictures and other media.
         Next would be a way to browse channels and request access to join; currently channels are invite only.
         Lastly, incorpoting message history and additional role and administration features would round of the project
     </p>
