@@ -11,6 +11,9 @@
         for aech channel you are a part of. You are a unique "member" of a channel you join but you still have a high-level user attached
         to your account. Text channels incorporate a rich-text editor to send dynamically styled text.This project was created over the span over a week in the Flatiron Software Engineering Bootcamp with the help of Celestino Martinez.
     </p>
+  <h3>
+    <b>Technologies: </b> Ruby on Rails, React, Javascript, Ruby, HTML, SCSS, Git, DraftJS
+  </h3>
 <section>
     <h3> Additional Goals </h3>
     <p>
@@ -23,3 +26,5 @@
     <h2> Contributors </h2>
     <h4> Alex Taylor and Celestino Martinez </h4>
 </section>
+
+
