@@ -12,7 +12,7 @@
         to your account. Text channels incorporate a rich-text editor to send dynamically styled text.This project was created over the span over a week in the Flatiron Software Engineering Bootcamp with the help of Celestino Martinez.
     </p>
   <h3>
-    <b>Technologies: </b> Ruby on Rails, React, Javascript, Ruby, HTML, SCSS, Git, DraftJS
+    Technologies: <p> Ruby on Rails, React, Javascript, Ruby, HTML, SCSS, Git, DraftJS </p>
   </h3>
 <section>
     <h3> Additional Goals </h3>
