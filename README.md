@@ -19,7 +19,7 @@
         The first would be incorporating Rails Action Cable into the project, to fully flush out the "live" features of the application.
         Second is incorporating Rails Active Storage to locally store user profile pictures and other media.
         Next would be a way to browse channels and request access to join; currently channels are invite only.
-        Lastly, incorpoting message history and additional role and administration features would round of the project
+        Lastly, incorpoting message history and additional role and administration features would round out the project
     </p>
     <img src = "https://i.gyazo.com/a652d9e738a995a8ddf742354c3a4b87.png" alt="Project Screenshot"/>
     <h2> Contributors </h2>
